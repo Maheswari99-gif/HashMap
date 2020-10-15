@@ -3,11 +3,13 @@ package com.capgemini.hashmap;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class MyHashMapTest {
+public class MyLinkedHashMapTest {
 	@Test
 	public void givenASentenceWhenWordsAddedToListShouldReturnFrequency() {
-		String sentence = "To be or not to be";
-		MyHashMap<String, Integer> myHashMap = new MyHashMap<>();
+		String sentence = "Paranoids are not paranoid because they are"
+				+ " paranoid but because they keep putting themselves deliberately"
+				+ " into paranoid avoidable situations";
+		MyLinkedHashMap<String, Integer> myHashMap = new MyLinkedHashMap<>();
 		String[] words = sentence.toLowerCase().split(" ");
 		for (String word : words) {
 			Integer value = myHashMap.get(word);
@@ -17,9 +19,9 @@ public class MyHashMapTest {
 				value = value + 1;
 			myHashMap.add(word, value);
 		}
-		int frequency = myHashMap.get("to");
+		int frequency = myHashMap.get("paranoid");
 		System.out.println(myHashMap);
-		Assert.assertEquals(2, frequency);
+		Assert.assertEquals(3, frequency);
 	}
 
 }
